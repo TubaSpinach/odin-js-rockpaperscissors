@@ -28,16 +28,39 @@ function playRound(pChoice,cChoice) {
         default:
             console.log("please type 'rock', 'paper', or 'scissors'");
     }
-    
+
     let winStatement = `You win! ${cleanPChoice} beats ${winTo}`;
-    let lossStatement = `You lose :( ${losteTo} beats ${cleanPChoice}`;
+    let lossStatement = `You lose :( ${loseTo} beats ${cleanPChoice}`;
     let tieStatement = "It's a tie? o.O";
 
     if(cleanCChoice == loseTo) {
-        return lossStatement;
+        return [0,1];
     } else if (cleanCChoice == winTo) {
-        return winStatement;
+        return [1,0];
     } else {
-        return tieStatement;
+        return [0,0];
     }
 }
+
+function game() {
+    let pScore = 0
+    let cScore = 0
+    for(let i = 0; i < 5; i++) {
+        let pC = prompt("What're you picking?", "Rock, Paper, Scissors");
+        let cC = getComputerChoice();
+        let results = playRound(pC,cC);
+        console.log(`Round ${i}: ${pC} vs ${cC}`);
+        pScore += results[0];
+        cScore += results[1];
+        console.log(`Round ${i}: player: ${pScore}; computer: ${cScore}`);
+    }
+    if(pScore > cScore) {
+        console.log(`player wins! ${pScore} to ${cScore}`);
+    } else if (pScore == cScore) {
+        console.log(`tie! ${pScore} to ${cScore}`);
+    } else {
+        console.log(`computer wins! ${cScore} to ${pScore}`);
+    }
+    return true;
+}
+
