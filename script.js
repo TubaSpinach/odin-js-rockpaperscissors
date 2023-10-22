@@ -9,9 +9,6 @@ function playRound(pChoice,cChoice) {
     let cleanCChoice = cChoice.toLowerCase();
     let loseTo;
     let winTo;
-    let winStatement = "You win!";
-    let lossStatement = "You lose :(";
-    let tieStatement = "It's a tie? o.O";
     switch (cleanPChoice) {
         case "rock":
             loseTo = "paper";
@@ -31,6 +28,11 @@ function playRound(pChoice,cChoice) {
         default:
             console.log("please type 'rock', 'paper', or 'scissors'");
     }
+    
+    let winStatement = `You win! ${cleanPChoice} beats ${winTo}`;
+    let lossStatement = `You lose :( ${losteTo} beats ${cleanPChoice}`;
+    let tieStatement = "It's a tie? o.O";
+
     if(cleanCChoice == loseTo) {
         return lossStatement;
     } else if (cleanCChoice == winTo) {
