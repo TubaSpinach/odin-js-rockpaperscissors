@@ -64,3 +64,28 @@ function game() {
     return true;
 }
 
+const entrybox = document.querySelector('.entrybox');
+
+const redP = document.createElement('p');
+redP.style.color = 'red';
+redP.textContent = "Hey I'm red!";
+
+const blueH3 = document.createElement('h3');
+blueH3.style.color = 'blue';
+blueH3.textContent = "I'm a blue h3!";
+
+const blackDiv = document.createElement('div');
+blackDiv.style.cssText = "background-color: pink; border-style: solid; border-color: black;"
+
+const h1Div = document.createElement('h1');
+h1Div.textContent = "I'm in a div";
+
+const pDiv = document.createElement('p');
+pDiv.textContent = "ME TOO!";
+
+blackDiv.appendChild(h1Div);
+blackDiv.appendChild(pDiv);
+
+entrybox.appendChild(redP);
+entrybox.appendChild(blueH3);
+entrybox.appendChild(blackDiv);
