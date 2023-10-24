@@ -89,3 +89,10 @@ blackDiv.appendChild(pDiv);
 entrybox.appendChild(redP);
 entrybox.appendChild(blueH3);
 entrybox.appendChild(blackDiv);
+
+const btn = document.querySelector('#btn');
+btn.onclick = () => alert("onclick propert ftw!");
+const evebtn = document.querySelector('#evebtn');
+evebtn.addEventListener('click', ()=> {
+    alert("event listener ftw");
+});
